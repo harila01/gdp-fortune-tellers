@@ -136,3 +136,14 @@ plt.boxplot(results)
 ax.set_xticklabels(names)
 plt.show()
 
+
+lnr = LinearRegression()
+lnr.fit(X_train, Y_train)
+Y_predictions = lnr.predict(X_validation)
+print(lnr.intercept_)
+
+from sklearn import metrics
+print(metrics.mean_absolute_error(Y_predictions, Y_validation))
+print(metrics.mean_squared_error(Y_predictions, Y_validation))
+print(numpy.sqrt(metrics.mean_squared_error(Y_predictions, Y_validation)))
+
